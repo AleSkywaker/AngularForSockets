@@ -6,18 +6,23 @@ import { Socket } from "ngx-socket-io";
 })
 export class WebsocketService {
   public socketStatus = false;
+
   constructor(private socket: Socket) {
     this.checkStatus();
   }
 
   checkStatus() {
     this.socket.on("connect", () => {
-      console.log("Conectado al servidor");
+      console.log("cliente de angular conectado al servidor");
       this.socketStatus = true;
     });
     this.socket.on("disconnect", () => {
-      console.log("Desconectado del servidor");
+      console.log("cliente de angular desconectado del servidor");
       this.socketStatus = false;
     });
+  }
+  //evento que quiero emitir o escuchar
+  emit(evento: string, payload?: any, callback?: Function) {
+    //emit('evento', payload, callback)
   }
 }
