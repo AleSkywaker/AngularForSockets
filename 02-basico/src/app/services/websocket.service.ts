@@ -24,5 +24,6 @@ export class WebsocketService {
   //evento que quiero emitir o escuchar
   emit(evento: string, payload?: any, callback?: Function) {
     //emit('evento', payload, callback)
+    this.socket.emit(evento, payload, callback);
   }
 }
