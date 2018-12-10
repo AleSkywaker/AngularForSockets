@@ -1,0 +1,11 @@
+#chat-mensajes {
+  border: 2px solid grey;
+  overflow-y: scroll;
+  height: 200px;
+  padding: 0;
+}
+#chat-mensajes > li {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
