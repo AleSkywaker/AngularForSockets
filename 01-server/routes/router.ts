@@ -21,6 +21,8 @@ router.post("/mensajes/:id", (req: Request, res: Response) => {
 
   const server = Server.instance;
 
+  server.io.in(id).emit("mensaje-privado", payload);
+
   res.json({
     ok: true,
     mensaje: `POST - LISTO ${cuerpo} ${de} ${id} NUEVO`
