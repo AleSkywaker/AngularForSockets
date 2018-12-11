@@ -11,7 +11,7 @@ router.get("/mensajes", (req: Request, res: Response) => {
 });
 router.post("/mensajes/:id", (req: Request, res: Response) => {
   var cuerpo = req.body.cuerpo;
-  var de = req.body.surname;
+  var de = req.body.de;
   var id = req.params.id;
 
   const payload = {
