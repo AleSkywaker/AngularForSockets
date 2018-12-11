@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import Server from "../classes/server";
 
 const router = Router();
 
@@ -9,12 +10,20 @@ router.get("/mensajes", (req: Request, res: Response) => {
   });
 });
 router.post("/mensajes/:id", (req: Request, res: Response) => {
-  var nombre = req.body.name;
-  var apellido = req.body.surname;
+  var cuerpo = req.body.cuerpo;
+  var de = req.body.surname;
   var id = req.params.id;
+
+  const payload = {
+    de,
+    cuerpo
+  };
+
+  const server = Server.instance;
+
   res.json({
     ok: true,
-    mensaje: `POST - LISTO ${nombre} ${apellido} ${id} NUEVO`
+    mensaje: `POST - LISTO ${cuerpo} ${de} ${id} NUEVO`
   });
 });
 export default router;
