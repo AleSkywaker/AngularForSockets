@@ -3,7 +3,16 @@ import Server from "../classes/server";
 
 const router = Router();
 
-router.get("/mensajes", (req: Request, res: Response) => {
+router.post("/mensajes", (req: Request, res: Response) => {
+  const cuerpo = req.body.cuerpo;
+  const de = req.body.de;
+
+  const payload = { cuerpo, de };
+
+  const server = Server.instance;
+
+  server.io.emit("mensaje-nuevo", payload);
+
   res.json({
     ok: true,
     mensaje: "Todo esta bien!!!"
@@ -28,4 +37,22 @@ router.post("/mensajes/:id", (req: Request, res: Response) => {
     mensaje: `POST - LISTO ${cuerpo} ${de} ${id} NUEVO`
   });
 });
+
+router.get("/usuarios", (req: Request, res: Response) => {
+  const server = Server.instance;
+
+  server.io.clients((err: any, clientes: string[]) => {
+    if (err) {
+      return res.json({
+        ok: false,
+        err
+      });
+    }
+    res.json({
+      ok: true,
+      clientes
+    });
+  });
+});
+
 export default router;
