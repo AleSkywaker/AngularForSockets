@@ -43,7 +43,7 @@ export class UsuariosLista {
     this.lista = this.lista.filter(usuario => {
       return usuario.id !== id;
     });
-    // console.log("lista user", this.lista);
+    console.log("lista user", this.lista);
     return tempUser;
   }
 }
