@@ -18,7 +18,7 @@ export class UsuariosLista {
         break;
       }
     }
-    console.log("%c===========Actualizando usuario ===========");
+    console.log("===========Actualizando usuario ===========");
     console.log("user con nombre", this.lista);
   }
 
