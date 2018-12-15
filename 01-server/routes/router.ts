@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import Server from "../classes/server";
+import { usuariosConectados } from "../sockets/socket";
 
 const router = Router();
 
@@ -61,7 +62,7 @@ router.get("/usuarios", (req: Request, res: Response) => {
 router.get("usuarios/detalle", (req: Request, res: Response) => {
   res.json({
     ok: true,
-    clientes
+    clientes: usuariosConectados.getLista()
   });
 });
 
