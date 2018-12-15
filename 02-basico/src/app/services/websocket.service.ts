@@ -21,6 +21,7 @@ export class WebsocketService {
     this.socket.on("connect", () => {
       console.log("cliente de angular conectado al servidor");
       this.socketStatus = true;
+      this.cargarStorage();
     });
     this.socket.on("disconnect", () => {
       console.log("cliente de angular desconectado del servidor");
