@@ -57,4 +57,12 @@ router.get("/usuarios", (req: Request, res: Response) => {
   });
 });
 
+//Obtner usuarios y sus nombres
+router.get("usuarios/detalle", (req: Request, res: Response) => {
+  res.json({
+    ok: true,
+    clientes
+  });
+});
+
 export default router;
