@@ -38,6 +38,7 @@ router.post("/mensajes/:id", (req: Request, res: Response) => {
   });
 });
 
+//Servicio para obtener todos los ids de  los usuarios
 router.get("/usuarios", (req: Request, res: Response) => {
   const server = Server.instance;
 
