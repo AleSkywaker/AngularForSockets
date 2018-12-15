@@ -42,6 +42,7 @@ router.post("/mensajes/:id", (req: Request, res: Response) => {
 router.get("/usuarios", (req: Request, res: Response) => {
   const server = Server.instance;
 
+  //clients devuelve un callback, cuyo primer argumento es un error y segundo son los ids
   server.io.clients((err: any, clientes: string[]) => {
     if (err) {
       return res.json({
