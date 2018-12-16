@@ -32,6 +32,7 @@ export const setUser = (cliente: Socket, io: socketIO.Server) => {
     (payload: { nombre: string }, cb: Function) => {
       console.log("usuario logeado ", payload.nombre);
       usuariosConectados.actualizarNombre(cliente.id, payload.nombre);
+      io.emit("usuarios-activos", usuariosConectados.getLista());
       cb({
         ok: true,
         mensaje: `Usuario ${payload.nombre}, configurado`
