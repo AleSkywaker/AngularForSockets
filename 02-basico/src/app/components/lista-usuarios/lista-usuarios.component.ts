@@ -12,5 +12,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   constructor(public chatService: ChatService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.usuariosActivos = this.chatService.getUsuariosActivos();
+  }
 }
