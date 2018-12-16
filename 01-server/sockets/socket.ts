@@ -5,7 +5,7 @@ import { Usuario } from "../classes/usuario";
 
 export const usuariosConectados = new UsuariosLista();
 
-export const conectarCliente = (cliente: Socket) => {
+export const conectarCliente = (cliente: Socket, io: socketIO.Server) => {
   const usuario = new Usuario(cliente.id);
   usuariosConectados.agregar(usuario);
 };
