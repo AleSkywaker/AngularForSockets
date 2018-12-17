@@ -40,6 +40,9 @@ export default class Server {
 
       //Desconectar
       socket.desconectar(cliente, this.io);
+
+      //Obtener usuarios activos
+      socket.obtenerUsuarios(cliente, this.io);
     });
   }
 
